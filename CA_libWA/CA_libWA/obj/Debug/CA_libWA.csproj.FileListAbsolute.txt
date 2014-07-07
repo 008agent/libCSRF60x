@@ -1,0 +1,5 @@
+D:\WORKSPACE\CA_libWA\CA_libWA\obj\Debug\CA_libWA.csprojResolveAssemblyReference.cache
+D:\WORKSPACE\CA_libWA\CA_libWA\bin\Debug\CA_libWA.exe
+D:\WORKSPACE\CA_libWA\CA_libWA\bin\Debug\CA_libWA.pdb
+D:\WORKSPACE\CA_libWA\CA_libWA\obj\Debug\CA_libWA.exe
+D:\WORKSPACE\CA_libWA\CA_libWA\obj\Debug\CA_libWA.pdb
