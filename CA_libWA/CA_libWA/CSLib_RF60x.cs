@@ -212,6 +212,18 @@ namespace CA_libWA
         [DllImport("RF60x.dll")]
         public extern static bool RF60x_GetStreamMeasure(IntPtr hCOM, ref UInt16 lpusValue);
 
+        /// <summary>
+        /// Передача пользовательских команд
+        /// </summary>
+        /// <param name="hCOM">дескриптор устройства, полученный в результате работы функции RF60x_OpenPort()</param>
+        /// <param name="pcInData">массив для передачи в датчик</param>
+        /// <param name="dwInSize">размер передаваемых данных </param>
+        /// <param name="pcOutData">массив для приема данных из датчика</param>
+        /// <param name="pdwOutSize">указатель на переменную, в которую будет записан размер полученных данных от датчика</param>
+        /// <returns></returns>
+        [DllImport("RF60x.dll")]
+        public extern static bool RF60x_CustomCmd(IntPtr hCOM, String pcInData, UInt32 dwInSize, String pcOutData, ref UInt32 pdwOutSize);
+
     }
 
 }
