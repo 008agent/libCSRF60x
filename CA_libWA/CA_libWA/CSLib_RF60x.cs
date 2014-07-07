@@ -185,6 +185,24 @@ namespace CA_libWA
             return (UInt32)(Darg * Sarg / 0x4000);
         }
 
+        /// <summary>
+        /// Запуск потока измерений
+        /// </summary>
+        /// <param name="hCOM">дескриптор устройства, полученный в результате работы функции RF60x_OpenPort()</param>
+        /// <param name="bAddress">адрес устройства</param>
+        /// <returns>TRUE если удалось перевести устройство в режим непрерывной передачи результатов, инача FALSE</returns>
+        [DllImport("RF60x.dll")]
+        public extern static bool RF60x_StartStream(IntPtr hCOM,byte bAddress);
+
+        /// <summary>
+        /// Остановка потока измерений
+        /// </summary>
+        /// <param name="hCOM">дескриптор устройства, полученный в результате работы функции RF60x_OpenPort()</param>
+        /// <param name="bAddress">адрес устройства</param>
+        /// <returns>TRUE если удалось остановить передачу данных, иначе FALSE</returns>
+        [DllImport("RF60x.dll")]
+        public extern static bool RF60x_StopStream(IntPtr hCOM, byte bAddress);
+
 
     }
 
