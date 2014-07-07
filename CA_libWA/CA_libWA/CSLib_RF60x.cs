@@ -203,6 +203,14 @@ namespace CA_libWA
         [DllImport("RF60x.dll")]
         public extern static bool RF60x_StopStream(IntPtr hCOM, byte bAddress);
 
+        /// <summary>
+        /// Получение результатов измерения из потока
+        /// </summary>
+        /// <param name="hCOM">дескриптор устройства, полученный в результате работы функции RF60x_OpenPort()</param>
+        /// <param name="lpusValue">указатель на переменную, содержащую результат D(см. DToXTransform()) </param>
+        /// <returns>TRUE если данные в буфере присутствуют и заполняется значение lpusValue, иначе FALSE</returns>
+        [DllImport("RF60x.dll")]
+        public extern static bool RF60x_GetStreamMeasure(IntPtr hCOM, ref UInt16 lpusValue);
 
     }
 
