@@ -85,7 +85,7 @@ namespace CA_libWA
                 /// <summary>
                 /// модификация программного обеспечения
                 /// </summary>
-                public byte bDeviceModificaton;
+                public byte bDeviceModification;
                 /// <summary>
                 /// серийный номер устройства
                 /// </summary>
@@ -144,6 +144,17 @@ namespace CA_libWA
             public extern static bool RF60x_ReadParameter(IntPtr hCOM, byte bAddress, UInt16 wParameter, ref UInt32 lpdwValue);
 
             /// <summary>
+            /// Запись параметров
+            /// </summary>
+            /// <param name="hCOM">дескриптор устройства, полученный в результате работы функции RF60x_OpenPort()</param>
+            /// <param name="bAddress">адрес устройства</param>
+            /// <param name="wParameter">номер параметра</param>
+            /// <param name="dwValue">переменная для вывода текущего значения параметров</param>
+            /// <returns>TRUE если устройство ответило на запрос записи параметра, иначе FALSE</returns>
+            [DllImport("RF60x.dll")]
+            public extern static bool RF60x_WriteParameter(IntPtr hCOM, byte bAddress, UInt16 wParameter, UInt32 dwValue);
+
+            /// <summary>
             /// Сохранение текущих параметров во FLASH-памяти датчика
             /// </summary>
             /// <param name="hCOM">дескриптор устройства, полученный в результате работы функции RF60x_OpenPort()</param>
@@ -186,9 +197,9 @@ namespace CA_libWA
             /// <param name="Darg">параметр D, результат датчика</param>
             /// <param name="Sarg">параметр S, полный диапазон датчика</param>
             /// <returns>возвращает значение расстояния в миллиметрах</returns>
-            public static UInt32 DToXTransform(UInt16 Darg, UInt16 Sarg)
+            public static float DToXTransform(UInt16 Darg, UInt16 Sarg)
             {
-                return (UInt32)(Darg * Sarg / 0x4000);
+                return (float)(Darg * Sarg) / 0x4000;
             }
 
             /// <summary>
