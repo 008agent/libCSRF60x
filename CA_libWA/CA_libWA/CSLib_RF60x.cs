@@ -19,35 +19,35 @@ namespace CA_libWA
             /// <summary>
             /// Подключение  аналогового выхода
             /// </summary>
-            public static UInt16 RF60x_PARAMETER_ANALOG_OUT = ((0x01) | ((0x01) << 8));
+            public static UInt16 RF60x_PARAMETER_ANALOG_OUT         = ((0x01) | ((0x01) << 8));
             /// <summary>
             /// Управление выборкой и синхронизацией
             /// </summary>
-            public static UInt16 RF60x_PARAMETER_SAMPLE_AND_SYNC = ((0x02) | ((0x01) << 8));
+            public static UInt16 RF60x_PARAMETER_SAMPLE_AND_SYNC    = ((0x02) | ((0x01) << 8));
             /// <summary>
             /// Сетевой адрес
             /// </summary>
-            public static UInt16 RF60x_PARAMETER_NETWORK_ADDRESS = ((0x03) | ((0x01) << 8));
+            public static UInt16 RF60x_PARAMETER_NETWORK_ADDRESS    = ((0x03) | ((0x01) << 8));
             /// <summary>
             /// Скорость передачи данных через  по-следовательный порт
             /// </summary>
-            public static UInt16 RF60x_PARAMETER_BAUDRATE = ((0x04) | ((0x01) << 8));
+            public static UInt16 RF60x_PARAMETER_BAUDRATE           = ((0x04) | ((0x01) << 8));
             /// <summary>
             /// Яркость лазера
             /// </summary>
-            public static UInt16 RF60x_PARAMETER_LASER_BRIGHT = ((0x05) | ((0x01) << 8));
+            public static UInt16 RF60x_PARAMETER_LASER_BRIGHT       = ((0x05) | ((0x01) << 8));
             /// <summary>
             /// Количество усредняемых значений
             /// </summary>
-            public static UInt16 RF60x_PARAMETER_AVERAGE_COUNT = ((0x06) | ((0x01) << 8));
+            public static UInt16 RF60x_PARAMETER_AVERAGE_COUNT      = ((0x06) | ((0x01) << 8));
             /// <summary>
             /// Период выборки
             /// </summary>
-            public static UInt16 RF60x_PARAMETER_SAMPLING_PERIOD = ((0x08) | ((0x02) << 8));
+            public static UInt16 RF60x_PARAMETER_SAMPLING_PERIOD    = ((0x08) | ((0x02) << 8));
             /// <summary>
             /// Максимальное время накопления
             /// </summary>
-            public static UInt16 RF60x_PARAMETER_ACCUMULATION_TIME = ((0x0A) | ((0x02) << 8));
+            public static UInt16 RF60x_PARAMETER_ACCUMULATION_TIME  = ((0x0A) | ((0x02) << 8));
             /// <summary>
             /// Начало диапазона аналогового выхода
             /// </summary>
@@ -55,20 +55,20 @@ namespace CA_libWA
             /// <summary>
             /// Конец диапазона аналогового выхода
             /// </summary>
-            public static UInt16 RF60x_PARAMETER_END_ANALOG_RANGE = ((0x0E) | ((0x02) << 8));
+            public static UInt16 RF60x_PARAMETER_END_ANALOG_RANGE   = ((0x0E) | ((0x02) << 8));
             /// <summary>
             /// Время задержки результата
             /// </summary>
-            public static UInt16 RF60x_PARAMETER_RESULT_DELAY_TIME = ((0x10) | ((0x01) << 8));
+            public static UInt16 RF60x_PARAMETER_RESULT_DELAY_TIME  = ((0x10) | ((0x01) << 8));
             /// <summary>
             /// Точка нуля
             /// </summary>
-            public static UInt16 RF60x_PARAMETER_ZERO_POINT_VALUE = ((0x17) | ((0x02) << 8));
+            public static UInt16 RF60x_PARAMETER_ZERO_POINT_VALUE   = ((0x17) | ((0x02) << 8));
 
-            public static UInt16 RF60x_PARAMETER_CAN_SPEED = ((0x20) | ((0x01) << 8));
-            public static UInt16 RF60x_PARAMETER_CAN_STANDARD_ID = ((0x22) | ((0x02) << 8));
-            public static UInt16 RF60x_PARAMETER_CAN_EXTENDED_ID = ((0x24) | ((0x04) << 8));
-            public static UInt16 RF60x_PARAMETER_CAN_ID = ((0x28) | ((0x01) << 8));
+            public static UInt16 RF60x_PARAMETER_CAN_SPEED          = ((0x20) | ((0x01) << 8));
+            public static UInt16 RF60x_PARAMETER_CAN_STANDARD_ID    = ((0x22) | ((0x02) << 8));
+            public static UInt16 RF60x_PARAMETER_CAN_EXTENDED_ID    = ((0x24) | ((0x04) << 8));
+            public static UInt16 RF60x_PARAMETER_CAN_ID             = ((0x28) | ((0x01) << 8));
         #endregion
 
 
