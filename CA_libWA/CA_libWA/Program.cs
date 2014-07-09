@@ -12,6 +12,10 @@ namespace CA_libWA
         [DllImport("user32.dll")]
         public extern static int MessageBox(IntPtr hWnd,String lpText,String lpCaption,uint uType);
         
+        /// <summary>
+        /// Поток обработки результатов измерения
+        /// </summary>
+        /// <param name="args">что угодно</param>
         public static void routine_measurement(object args)
         {
             while (true)
@@ -22,25 +26,22 @@ namespace CA_libWA
 
         static void Main(string[] args)
         {
-         /*   if (args.Length < 2)
-            {
-                Console.WriteLine("args length={0}\npress any key to exit",args.Length);
-                Console.ReadKey();
-                return;
-            }
-            string strPortName = args[0];
-            string strBaudrate = args[1];*/
-            //local definitions
+            // div - разница конечного результата и результата измерения.
+            // fresult - вычисленный результат текущего измерения
+            // way - направление переполнения
+            // wData - полученный с датчика результат
             float div = 0, fresult = 0; string way = "";
             UInt16 wData=0;
+            // структура с ответом от устройства
             CSLib_RF60x._RF60x_HELLO_ANSWER_ ans = new CSLib_RF60x._RF60x_HELLO_ANSWER_();
+            // дескриптор устройства COM порта
             IntPtr hComPort = new IntPtr();
+            string ComName;
+            UInt32 ComBaudrate;
 
-            //Thread t = new Thread(routine_measurement);
-            //t.Start();
-            //end ld
+            ComSearch.searchRF60x(out ComName, out ComBaudrate);
 
-                bool result = CSLib_RF60x.RF60x_OpenPort("COM5", 9600, ref hComPort);
+            bool result = CSLib_RF60x.RF60x_OpenPort(ComName, ComBaudrate, ref hComPort);
                 Console.WriteLine("executing RF60x_OpenPort() result = {0}", result);
                      result = CSLib_RF60x.RF60x_HelloCmd(hComPort, 1, ref ans);
                 Console.WriteLine("executing RF60x_HelloCmd() result = {0}", result);
@@ -49,14 +50,16 @@ namespace CA_libWA
                 Console.ReadKey();
                 try
                 {
+                    //CSLib_RF60x.RF60x_StartStream(hComPort, 1);
                     while (true)
                     {
                         result = CSLib_RF60x.RF60x_Measure(hComPort, 1, ref wData);
-                        if (wData != 0)
-                        {
+                        CSLib_RF60x.RF60x_GetStreamMeasure(hComPort, ref wData);
+                        /*if (wData != 0)
+                        {*/
                             fresult = CSLib_RF60x.DToXTransform(wData, ans.wDeviceRange);
                             div = fresult - 2.5f;
-                        }
+                        /*}*/
 
                         if (div == 0.0f) way = "OK";
                         else if (div < 0.0f) way = "UP";
@@ -66,6 +69,7 @@ namespace CA_libWA
                         Console.Write("measure result = {0:f4}mm\ndiv = {1:f4}mm\ndecision = {2}", fresult, div, way);
                         Thread.Sleep(200);//5 measurments per second
                     }
+                   
                 }
                 catch (Exception Ex)
                 {
@@ -73,7 +77,9 @@ namespace CA_libWA
                 }
                 finally
                 {
+                    //CSLib_RF60x.RF60x_StopStream(hComPort, 1);
                     result = CSLib_RF60x.RF60x_ClosePort(hComPort);
+                    
                     Console.WriteLine("executing RF60x_ClosePort() result = {0}", result);
 
                     Console.ReadKey();

@@ -1,0 +1,4 @@
+D:\WORKSPACE\libCSRF60x\CA_libWA\CA_libWA\bin\x64\Debug\CA_libWA.exe
+D:\WORKSPACE\libCSRF60x\CA_libWA\CA_libWA\bin\x64\Debug\CA_libWA.pdb
+D:\WORKSPACE\libCSRF60x\CA_libWA\CA_libWA\obj\x64\Debug\CA_libWA.exe
+D:\WORKSPACE\libCSRF60x\CA_libWA\CA_libWA\obj\x64\Debug\CA_libWA.pdb

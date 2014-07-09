@@ -102,7 +102,7 @@ namespace CA_libWA
         #endregion
 
 
-        #region FUNCTIONS
+        #region FUNCTIONS_RS232
 
             /// <summary>
             /// Подключение к COM-порту 
